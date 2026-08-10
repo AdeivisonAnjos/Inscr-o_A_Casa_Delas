@@ -10,18 +10,21 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>A Casa Delas | Jantar de Lançamento</title>
-
   <meta
     name="description"
     content="Inscrição para o Jantar de Lançamento do Projeto Social A Casa Delas."
   >
 
+  <title>
+    A Casa Delas | Jantar de Lançamento
+  </title>
+
 
   <style>
 
     /* =========================================================
-       CORES DO PROJETO
+       CONFIGURAÇÕES VISUAIS
+       MOBILE FIRST
        ========================================================= */
 
     :root {
@@ -36,34 +39,31 @@
       --rosa-fundo: #fbf5f2;
 
       --creme: #fffaf6;
-
-      --dourado: #c3a36a;
+      --branco: #ffffff;
 
       --texto: #34272b;
       --texto-suave: #74666a;
 
-      --branco: #ffffff;
-
       --borda: #ead8d4;
 
       --verde-whatsapp: #25D366;
-      --verde-whatsapp-hover: #1dad52;
+      --verde-whatsapp-hover: #1fad54;
 
       --sombra:
-        0 20px 55px rgba(75, 45, 55, 0.14);
-
-      --raio: 26px;
+        0 15px 35px rgba(75,45,55,.12);
 
     }
+
 
 
     * {
 
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
 
     }
+
 
 
     html {
@@ -73,6 +73,7 @@
     }
 
 
+
     body {
 
       font-family:
@@ -80,41 +81,34 @@
         Helvetica,
         sans-serif;
 
-      background:
-
-        radial-gradient(
-          circle at top left,
-          rgba(217,164,174,.22),
-          transparent 30%
-        ),
-
-        linear-gradient(
-          180deg,
-          var(--creme),
-          var(--rosa-fundo)
-        );
-
       color: var(--texto);
+
+      background:
+        var(--creme);
 
       line-height: 1.6;
 
+      overflow-x: hidden;
+
     }
+
+
+
+    body.capa-aberta {
+
+      overflow: hidden;
+
+    }
+
 
 
     img {
 
       max-width: 100%;
-
       display: block;
 
     }
 
-
-    a {
-
-      color: inherit;
-
-    }
 
 
     button,
@@ -126,108 +120,211 @@
     }
 
 
+
+    a {
+
+      color: inherit;
+      text-decoration: none;
+
+    }
+
+
+
     .container {
 
-      width:
-        min(
-          1120px,
-          calc(100% - 34px)
-        );
+      width: 100%;
 
-      margin:
-        0 auto;
+      max-width: 1120px;
+
+      margin: auto;
+
+      padding-left: 18px;
+      padding-right: 18px;
 
     }
 
 
 
     /* =========================================================
-       MENU
+       CAPA INICIAL
+       PRIMEIRA TELA DO SITE
+       ========================================================= */
+
+    .capa-inicial {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 9999;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          #f8ece8,
+          #fffaf6
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 15px;
+
+      overflow-y: auto;
+
+      transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+    }
+
+
+
+    .capa-inicial.oculta {
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      pointer-events: none;
+
+    }
+
+
+
+    .capa-conteudo {
+
+      width: 100%;
+
+      max-width: 480px;
+
+      margin: auto;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 16px;
+
+    }
+
+
+
+    .capa-convite {
+
+      width: 100%;
+
+      max-height:
+        calc(100svh - 110px);
+
+      object-fit: contain;
+
+      border-radius: 20px;
+
+      box-shadow:
+
+        0 15px 40px
+        rgba(75,45,55,.18);
+
+    }
+
+
+
+    .btn-capa {
+
+      width: 100%;
+
+      min-height: 56px;
+
+      border: none;
+
+      border-radius: 999px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--rose),
+          var(--vinho)
+        );
+
+      color: white;
+
+      font-size: 1.05rem;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      box-shadow:
+
+        0 12px 25px
+        rgba(75,45,55,.20);
+
+      transition: .2s ease;
+
+    }
+
+
+
+    .btn-capa:active {
+
+      transform: scale(.98);
+
+    }
+
+
+
+    /* =========================================================
+       CABEÇALHO
+       SOMENTE LOGOMARCA
        ========================================================= */
 
     .topo {
+
+      background:
+        rgba(255,250,246,.96);
+
+      border-bottom:
+        1px solid var(--borda);
 
       position: sticky;
 
       top: 0;
 
-      z-index: 20;
-
-      background:
-        rgba(255,250,246,.92);
-
-      backdrop-filter:
-        blur(14px);
-
-      border-bottom:
-        1px solid var(--borda);
+      z-index: 100;
 
     }
+
 
 
     .topo-conteudo {
 
-      min-height: 78px;
+      min-height: 76px;
 
       display: flex;
 
-      justify-content: space-between;
+      justify-content: center;
 
       align-items: center;
-
-      gap: 22px;
 
     }
 
 
-    .marca-mini {
 
-      display: flex;
+    .logo-topo {
 
-      align-items: center;
+      width: 70px;
 
-      gap: 12px;
-
-      color: var(--vinho);
-
-      text-decoration: none;
-
-      font-weight: 800;
-
-    }
-
-
-    .marca-mini img {
-
-      width: 58px;
-
-      height: 58px;
+      height: 70px;
 
       object-fit: contain;
-
-    }
-
-
-    .menu {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 22px;
-
-    }
-
-
-    .menu a {
-
-      color: var(--vinho);
-
-      text-decoration: none;
-
-      font-weight: 700;
-
-      font-size: .95rem;
 
     }
 
@@ -241,38 +338,35 @@
 
       display: inline-flex;
 
-      justify-content: center;
-
       align-items: center;
 
-      border: 0;
+      justify-content: center;
+
+      width: 100%;
+
+      min-height: 52px;
+
+      padding: 13px 20px;
+
+      border: none;
 
       border-radius: 999px;
 
-      padding:
-        15px 24px;
+      font-weight: 800;
 
       cursor: pointer;
 
-      font-weight: 800;
+      text-align: center;
 
-      text-decoration: none;
-
-      transition:
-        .2s ease;
+      transition: .2s ease;
 
     }
 
-
-    .btn:hover {
-
-      transform:
-        translateY(-2px);
-
-    }
 
 
     .btn-principal {
+
+      color: white;
 
       background:
 
@@ -282,132 +376,64 @@
           var(--vinho)
         );
 
-      color: white;
-
       box-shadow:
 
-        0 12px 30px
-        rgba(107,58,72,.25);
+        0 10px 25px
+        rgba(75,45,55,.17);
 
     }
 
 
-    .btn-claro {
 
-      background: white;
+    .btn:active {
 
-      color: var(--vinho);
-
-      border:
-        1px solid var(--borda);
+      transform: scale(.98);
 
     }
 
 
 
     /* =========================================================
-       INÍCIO
+       SEÇÕES
        ========================================================= */
 
-    .hero {
-
-      min-height:
-        calc(100vh - 78px);
-
-      display: grid;
-
-      place-items: center;
+    .secao {
 
       padding:
-        55px 0 70px;
-
-      position: relative;
-
-      overflow: hidden;
+        55px 0;
 
     }
 
 
-    .hero::before {
 
-      content: "";
-
-      position: absolute;
-
-      width: 430px;
-
-      height: 430px;
-
-      border-radius: 50%;
+    .secao-suave {
 
       background:
-        rgba(182,103,121,.10);
 
-      top: -120px;
-
-      left: -160px;
-
-    }
-
-
-    .hero::after {
-
-      content: "";
-
-      position: absolute;
-
-      width: 360px;
-
-      height: 360px;
-
-      border-radius: 50%;
-
-      background:
-        rgba(195,163,106,.08);
-
-      right: -100px;
-
-      bottom: -120px;
-
-    }
-
-
-    .hero-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        1.04fr .96fr;
-
-      gap: 52px;
-
-      align-items: center;
-
-      position: relative;
-
-      z-index: 2;
-
-    }
-
-
-    .logo-principal {
-
-      width: 250px;
-
-      max-height: 250px;
-
-      object-fit: contain;
-
-      margin-bottom: 18px;
-
-      filter:
-
-        drop-shadow(
-          0 10px 20px
-          rgba(75,45,55,.12)
+        linear-gradient(
+          180deg,
+          rgba(243,228,226,.65),
+          rgba(255,250,246,.95)
         );
 
+      border-top:
+        1px solid var(--borda);
+
+      border-bottom:
+        1px solid var(--borda);
+
     }
+
+
+
+    .titulo-centro {
+
+      text-align: center;
+
+      margin-bottom: 30px;
+
+    }
+
 
 
     .chamada {
@@ -416,15 +442,16 @@
 
       text-transform: uppercase;
 
-      font-size: .78rem;
-
-      letter-spacing: .28em;
-
       font-weight: 800;
 
-      margin-bottom: 10px;
+      font-size: .72rem;
+
+      letter-spacing: .18em;
+
+      margin-bottom: 8px;
 
     }
+
 
 
     h1,
@@ -438,174 +465,50 @@
 
       color: var(--vinho);
 
-      line-height: 1.08;
+      line-height: 1.1;
 
     }
+
 
 
     h1 {
 
-      font-size:
-        clamp(
-          3.1rem,
-          7vw,
-          6.4rem
-        );
-
-      margin-bottom: 18px;
-
-      letter-spacing: -.035em;
+      font-size: 2.5rem;
 
     }
+
 
 
     h2 {
 
-      font-size:
-        clamp(
-          2.2rem,
-          4vw,
-          4rem
-        );
+      font-size: 2rem;
 
-      margin-bottom: 16px;
+      margin-bottom: 15px;
 
     }
+
 
 
     h3 {
 
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+
+      margin-bottom: 8px;
 
     }
 
-
-    .subtitulo {
-
-      color:
-        var(--texto-suave);
-
-      max-width: 650px;
-
-      font-size:
-        clamp(
-          1.05rem,
-          2vw,
-          1.35rem
-        );
-
-    }
-
-
-    .slogan {
-
-      margin:
-        20px 0 28px;
-
-      color: var(--rose);
-
-      font-weight: 800;
-
-      text-transform: uppercase;
-
-      letter-spacing: .12em;
-
-      font-size: .9rem;
-
-    }
-
-
-    .acoes {
-
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 12px;
-
-    }
-
-
-    .hero-card {
-
-      padding: 16px;
-
-      background:
-        rgba(255,255,255,.80);
-
-      border:
-        1px solid var(--borda);
-
-      border-radius: 34px;
-
-      box-shadow: var(--sombra);
-
-    }
-
-
-    .hero-card img {
-
-      width: 100%;
-
-      border-radius: 24px;
-
-      object-fit: cover;
-
-    }
-
-
-
-    /* =========================================================
-       SEÇÕES
-       ========================================================= */
-
-    .secao {
-
-      padding:
-        92px 0;
-
-    }
-
-
-    .secao-suave {
-
-      background:
-
-        linear-gradient(
-          180deg,
-          rgba(243,228,226,.58),
-          rgba(255,255,255,.48)
-        );
-
-      border-top:
-        1px solid var(--borda);
-
-      border-bottom:
-        1px solid var(--borda);
-
-    }
-
-
-    .titulo-centro {
-
-      max-width: 800px;
-
-      margin:
-        0 auto 44px;
-
-      text-align: center;
-
-    }
 
 
     .linha-rosa {
 
-      width: 78px;
+      width: 70px;
 
       height: 3px;
 
+      border-radius: 999px;
+
       margin:
-        18px auto;
+        16px auto;
 
       background:
 
@@ -615,61 +518,129 @@
           var(--vinho)
         );
 
-      border-radius: 99px;
+    }
+
+
+
+    /* =========================================================
+       LOGO PRINCIPAL
+       ========================================================= */
+
+    .logo-apresentacao {
+
+      width: 180px;
+
+      height: auto;
+
+      object-fit: contain;
+
+      margin:
+        0 auto 25px;
+
+      filter:
+
+        drop-shadow(
+          0 10px 20px
+          rgba(75,45,55,.10)
+        );
+
+    }
+
+
+
+    .apresentacao {
+
+      text-align: center;
+
+      padding:
+        45px 0;
+
+    }
+
+
+
+    .apresentacao p {
+
+      color:
+        var(--texto-suave);
+
+      max-width: 600px;
+
+      margin:
+        0 auto;
+
+    }
+
+
+
+    .slogan {
+
+      margin-top: 18px;
+
+      color:
+        var(--rose);
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+
+      font-size: .8rem;
 
     }
 
 
 
     /* =========================================================
-       INFORMAÇÕES EVENTO
+       EVENTO
        ========================================================= */
 
     .evento-grid {
 
       display: grid;
 
-      grid-template-columns:
-        repeat(3,1fr);
+      grid-template-columns: 1fr;
 
-      gap: 18px;
+      gap: 14px;
 
     }
 
 
+
     .info-card {
+
+      padding: 22px;
 
       background: white;
 
       border:
         1px solid var(--borda);
 
-      border-radius:
-        var(--raio);
-
-      padding: 28px;
+      border-radius: 22px;
 
       box-shadow:
 
-        0 10px 30px
-        rgba(75,45,55,.08);
+        0 8px 25px
+        rgba(75,45,55,.07);
 
     }
 
 
+
     .icone {
 
-      width: 48px;
+      width: 46px;
 
-      height: 48px;
+      height: 46px;
+
+      border-radius: 15px;
 
       display: grid;
 
       place-items: center;
 
-      margin-bottom: 16px;
-
-      border-radius: 16px;
+      margin-bottom: 14px;
 
       background:
         var(--rosa-nevoa);
@@ -677,7 +648,16 @@
       color:
         var(--vinho);
 
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+
+    }
+
+
+
+    .info-card p {
+
+      color:
+        var(--texto-suave);
 
     }
 
@@ -691,16 +671,12 @@
 
       display: grid;
 
-      grid-template-columns:
-        repeat(2,1fr);
+      grid-template-columns: 1fr;
 
-      gap: 22px;
-
-      max-width: 900px;
-
-      margin: auto;
+      gap: 18px;
 
     }
+
 
 
     .pacote {
@@ -710,14 +686,18 @@
       border:
         1px solid var(--borda);
 
-      border-radius: 28px;
+      border-radius: 24px;
 
-      padding: 34px;
+      padding:
+        26px 20px;
+
+      text-align: center;
 
       box-shadow:
         var(--sombra);
 
     }
+
 
 
     .pacote-destaque {
@@ -729,14 +709,13 @@
     }
 
 
+
     .etiqueta {
 
       display: inline-block;
 
       padding:
         7px 12px;
-
-      margin-bottom: 16px;
 
       border-radius: 999px;
 
@@ -746,80 +725,38 @@
       color:
         var(--vinho);
 
-      font-size: .78rem;
+      font-size: .75rem;
 
       font-weight: 800;
 
+      margin-bottom: 14px;
+
     }
+
 
 
     .preco {
 
-      margin:
-        14px 0 8px;
-
       color:
         var(--rose);
 
-      font-size: 2.5rem;
+      font-size: 2.2rem;
 
       font-weight: 900;
 
-    }
-
-
-
-    /* =========================================================
-       GALERIA
-       ========================================================= */
-
-    .galeria {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap: 18px;
+      margin:
+        12px 0 8px;
 
     }
 
 
-    .galeria-item {
 
-      overflow: hidden;
+    .pacote p {
 
-      border:
-        1px solid var(--borda);
+      color:
+        var(--texto-suave);
 
-      border-radius: 28px;
-
-      background: white;
-
-      box-shadow:
-        var(--sombra);
-
-    }
-
-
-    .galeria-item img {
-
-      width: 100%;
-
-      height: 380px;
-
-      object-fit: cover;
-
-      transition:
-        transform .3s ease;
-
-    }
-
-
-    .galeria-item:hover img {
-
-      transform:
-        scale(1.03);
+      margin-bottom: 20px;
 
     }
 
@@ -833,21 +770,37 @@
 
       display: grid;
 
-      grid-template-columns:
-        .9fr 1.1fr;
+      grid-template-columns: 1fr;
 
-      align-items: center;
-
-      gap: 45px;
+      gap: 25px;
 
     }
 
 
+
+    .sobre-texto {
+
+      text-align: center;
+
+    }
+
+
+
+    .sobre-texto p {
+
+      color:
+        var(--texto-suave);
+
+    }
+
+
+
     .sobre-card {
 
-      padding: 34px;
+      padding:
+        25px 20px;
 
-      border-radius: 30px;
+      border-radius: 22px;
 
       color: white;
 
@@ -865,19 +818,19 @@
     }
 
 
+
     .sobre-card h3 {
 
       color: white;
 
-      margin-bottom: 12px;
-
     }
+
 
 
     .sobre-card p {
 
       color:
-        rgba(255,255,255,.88);
+        rgba(255,255,255,.85);
 
     }
 
@@ -891,26 +844,42 @@
 
       display: grid;
 
-      grid-template-columns:
-        .8fr 1.2fr;
+      grid-template-columns: 1fr;
 
-      gap: 42px;
-
-      align-items: start;
+      gap: 30px;
 
     }
 
 
-    .form-box {
 
-      padding: 30px;
+    .formulario-info {
+
+      text-align: left;
+
+    }
+
+
+
+    .formulario-info p {
+
+      color:
+        var(--texto-suave);
+
+    }
+
+
+
+    .form-box {
 
       background: white;
 
       border:
         1px solid var(--borda);
 
-      border-radius: 30px;
+      border-radius: 24px;
+
+      padding:
+        22px 17px;
 
       box-shadow:
         var(--sombra);
@@ -918,26 +887,30 @@
     }
 
 
+
     .campo {
 
       display: grid;
 
-      gap: 8px;
+      gap: 7px;
 
-      margin-bottom: 17px;
+      margin-bottom: 15px;
 
     }
+
 
 
     .campo label {
 
-      color: var(--vinho);
+      color:
+        var(--vinho);
+
+      font-size: .9rem;
 
       font-weight: 800;
 
-      font-size: .92rem;
-
     }
+
 
 
     .campo input,
@@ -945,23 +918,33 @@
 
       width: 100%;
 
+      min-height: 52px;
+
       padding:
-        14px 15px;
+        13px 14px;
 
       border:
         1px solid #dccbc7;
 
       border-radius: 14px;
 
-      background:
-        #fffdfc;
-
       color:
         var(--texto);
 
+      background:
+        #fffdfc;
+
       outline: none;
 
+      /*
+        16px evita zoom automático
+        em alguns iPhones.
+      */
+
+      font-size: 16px;
+
     }
+
 
 
     .campo input:focus,
@@ -973,26 +956,26 @@
       box-shadow:
 
         0 0 0 4px
-        rgba(182,103,121,.11);
+        rgba(182,103,121,.10);
 
     }
+
 
 
     .grade-2 {
 
       display: grid;
 
-      grid-template-columns:
-        1fr 1fr;
+      grid-template-columns: 1fr;
 
-      gap: 14px;
+      gap: 0;
 
     }
 
 
 
     /* =========================================================
-       MESA
+       NOMES DA MESA
        ========================================================= */
 
     .mesa-nomes {
@@ -1002,7 +985,7 @@
       margin:
         4px 0 18px;
 
-      padding: 18px;
+      padding: 17px;
 
       background:
         var(--rosa-nevoa);
@@ -1012,9 +995,23 @@
     }
 
 
+
     .mesa-nomes.ativo {
 
       display: block;
+
+    }
+
+
+
+    .mesa-nomes p {
+
+      color:
+        var(--texto-suave);
+
+      font-size: .9rem;
+
+      margin-bottom: 14px;
 
     }
 
@@ -1028,12 +1025,7 @@
 
       margin-top: 18px;
 
-      padding: 18px;
-
-      border:
-        1px solid var(--borda);
-
-      border-radius: 18px;
+      padding: 17px;
 
       background:
 
@@ -1043,7 +1035,13 @@
           rgba(255,250,246,.96)
         );
 
+      border:
+        1px solid var(--borda);
+
+      border-radius: 18px;
+
     }
+
 
 
     .resumo-linha {
@@ -1053,12 +1051,15 @@
       justify-content:
         space-between;
 
-      gap: 20px;
+      align-items: center;
+
+      gap: 15px;
 
       padding:
         7px 0;
 
     }
+
 
 
     .resumo-total {
@@ -1075,8 +1076,6 @@
 
       font-weight: 900;
 
-      font-size: 1.1rem;
-
     }
 
 
@@ -1089,29 +1088,19 @@
 
       margin-top: 20px;
 
-      padding: 22px;
+      padding:
+        18px 15px;
 
       border:
         1px solid var(--borda);
 
-      border-radius: 20px;
+      border-radius: 18px;
 
       background:
-
-        linear-gradient(
-          135deg,
-          #fffaf6,
-          #f6ebe8
-        );
+        #fffaf6;
 
     }
 
-
-    .pix-box h3 {
-
-      margin-bottom: 10px;
-
-    }
 
 
     .pix-box p {
@@ -1122,23 +1111,18 @@
     }
 
 
+
     .pix-chave {
 
-      display: flex;
+      display: grid;
 
-      justify-content:
-        space-between;
+      grid-template-columns: 1fr;
 
-      align-items: center;
+      gap: 14px;
 
-      gap: 15px;
+      margin-top: 15px;
 
-      flex-wrap: wrap;
-
-      margin-top: 16px;
-
-      padding:
-        16px;
+      padding: 16px;
 
       background: white;
 
@@ -1147,7 +1131,10 @@
 
       border-radius: 14px;
 
+      text-align: center;
+
     }
+
 
 
     .pix-chave small {
@@ -1158,26 +1145,31 @@
     }
 
 
+
     .pix-chave strong {
+
+      display: block;
 
       color:
         var(--vinho);
 
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+
+      word-break: break-all;
 
     }
 
 
+
     .btn-copiar {
 
-      border: 0;
+      width: 100%;
 
-      padding:
-        10px 16px;
+      min-height: 48px;
+
+      border: none;
 
       border-radius: 999px;
-
-      cursor: pointer;
 
       background:
         var(--rosa-nevoa);
@@ -1187,7 +1179,10 @@
 
       font-weight: 800;
 
+      cursor: pointer;
+
     }
+
 
 
     .pix-status {
@@ -1197,9 +1192,24 @@
       min-height: 22px;
 
       color:
-        var(--rose);
+        var(--rose) !important;
+
+      font-size: .9rem;
 
       font-weight: 700;
+
+    }
+
+
+
+    .pagamento-aviso {
+
+      margin-top: 15px;
+
+      font-size: .88rem;
+
+      color:
+        var(--texto-suave);
 
     }
 
@@ -1224,9 +1234,10 @@
       color:
         var(--texto-suave);
 
-      font-size: .9rem;
+      font-size: .84rem;
 
     }
+
 
 
     .termos input {
@@ -1235,7 +1246,7 @@
 
       height: 18px;
 
-      margin-top: 4px;
+      margin-top: 3px;
 
       accent-color:
         var(--rose);
@@ -1245,26 +1256,47 @@
 
 
     /* =========================================================
-       WHATSAPP
+       MENSAGEM
+       ========================================================= */
+
+    .mensagem {
+
+      margin-top: 14px;
+
+      color:
+        var(--vinho);
+
+      font-weight: 700;
+
+      min-height: 24px;
+
+    }
+
+
+
+    /* =========================================================
+       CONFIRMAÇÃO WHATSAPP
        ========================================================= */
 
     .confirmacao-whatsapp {
 
       display: none;
 
-      margin-top: 22px;
+      margin-top: 20px;
 
-      padding: 22px;
-
-      border:
-        1px solid var(--borda);
-
-      border-radius: 20px;
+      padding:
+        18px 15px;
 
       background:
         #fffaf6;
 
+      border:
+        1px solid var(--borda);
+
+      border-radius: 18px;
+
     }
+
 
 
     .confirmacao-whatsapp.ativo {
@@ -1274,26 +1306,19 @@
     }
 
 
-    .confirmacao-whatsapp h3 {
-
-      margin-bottom: 10px;
-
-    }
-
 
     .confirmacao-whatsapp p {
-
-      margin-bottom: 14px;
 
       color:
         var(--texto-suave);
 
+      margin-bottom: 15px;
+
     }
 
 
-    .btn-whatsapp {
 
-      width: 100%;
+    .btn-whatsapp {
 
       background:
         var(--verde-whatsapp);
@@ -1303,36 +1328,11 @@
     }
 
 
+
     .btn-whatsapp:hover {
 
       background:
         var(--verde-whatsapp-hover);
-
-    }
-
-
-    .mensagem {
-
-      margin-top: 14px;
-
-      min-height: 24px;
-
-      color:
-        var(--vinho);
-
-      font-weight: 700;
-
-    }
-
-
-    .pagamento-aviso {
-
-      margin-top: 18px;
-
-      color:
-        var(--texto-suave);
-
-      font-size: .9rem;
 
     }
 
@@ -1344,9 +1344,6 @@
 
     .rodape {
 
-      padding:
-        45px 0;
-
       background:
         var(--vinho);
 
@@ -1354,12 +1351,16 @@
 
       text-align: center;
 
+      padding:
+        35px 18px;
+
     }
+
 
 
     .rodape img {
 
-      width: 110px;
+      width: 90px;
 
       margin:
         0 auto 14px;
@@ -1367,426 +1368,240 @@
     }
 
 
+
+    .rodape strong {
+
+      display: block;
+
+    }
+
+
+
     .rodape p {
 
       color:
         rgba(255,255,255,.75);
+
+      font-size: .85rem;
+
+      margin-top: 4px;
 
     }
 
 
 
     /* =========================================================
-       CELULAR
+       CELULARES MUITO PEQUENOS
        ========================================================= */
 
-   /* =========================================================
-   FORMATO PARA CELULAR
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  body {
-    overflow-x: hidden;
-  }
-
-  .container {
-    width: 100%;
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-
-  /* =========================
-     CABEÇALHO
-     ========================= */
-
-  .topo {
-    position: sticky;
-    top: 0;
-  }
-
-  .topo-conteudo {
-    min-height: 68px;
-    gap: 10px;
-  }
-
-  .marca-mini img {
-    width: 48px;
-    height: 48px;
-  }
-
-  .marca-mini span {
-    display: none;
-  }
-
-  .menu {
-    gap: 8px;
-  }
-
-  .menu > a:not(.btn) {
-    display: none;
-  }
-
-  .menu .btn {
-    padding: 11px 17px;
-    font-size: 0.85rem;
-  }
-
-
-  /* =========================
-     CAPA
-     ========================= */
-
-  .hero {
-    min-height: auto;
-    padding: 30px 0 45px;
-  }
-
-  .hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .hero-grid > div:first-child {
-    width: 100%;
-    text-align: center;
-  }
-
-  .logo-principal {
-    width: 170px;
-    height: auto;
-    margin: 0 auto 18px;
-  }
-
-  .chamada {
-    font-size: 0.68rem;
-    letter-spacing: 0.18em;
-  }
-
-  h1 {
-    font-size: 3rem;
-    line-height: 1;
-    margin-bottom: 18px;
-  }
-
-  h2 {
-    font-size: 2rem;
-    line-height: 1.1;
-  }
-
-  h3 {
-    font-size: 1.4rem;
-  }
-
-  .subtitulo {
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 100%;
-  }
-
-  .slogan {
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    margin: 18px 0 24px;
-  }
-
-  .acoes {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .acoes .btn {
-    width: 100%;
-  }
-
-  .hero-card {
-    width: 100%;
-    padding: 8px;
-    border-radius: 22px;
-  }
-
-  .hero-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 17px;
-  }
-
-
-  /* =========================
-     TODAS AS SEÇÕES
-     ========================= */
-
-  .secao {
-    padding: 55px 0;
-  }
-
-  .titulo-centro {
-    margin-bottom: 28px;
-  }
-
-  .linha-rosa {
-    margin: 14px auto;
-  }
-
-
-  /* =========================
-     INFORMAÇÕES DO EVENTO
-     ========================= */
-
-  .evento-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .info-card {
-    padding: 22px;
-    border-radius: 20px;
-  }
-
-
-  /* =========================
-     PACOTES
-     ========================= */
-
-  .pacotes {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    width: 100%;
-  }
-
-  .pacote {
-    padding: 25px 20px;
-    border-radius: 22px;
-    text-align: center;
-  }
-
-  .preco {
-    font-size: 2.2rem;
-  }
-
-  .pacote .btn {
-    width: 100%;
-  }
-
-
-  /* =========================
-     GALERIA
-     ========================= */
-
-  .galeria {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .galeria-item {
-    border-radius: 20px;
-  }
-
-  .galeria-item img {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    object-fit: contain;
-  }
-
-
-  /* =========================
-     SOBRE O PROJETO
-     ========================= */
-
-  .sobre-grid {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .sobre-card {
-    padding: 25px 20px;
-    border-radius: 22px;
-  }
-
-
-  /* =========================
-     FORMULÁRIO
-     ========================= */
-
-  .formulario-area {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .form-box {
-    width: 100%;
-    padding: 22px 17px;
-    border-radius: 22px;
-  }
-
-  .grade-2 {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .campo {
-    margin-bottom: 15px;
-  }
-
-  .campo input,
-  .campo select {
-    min-height: 52px;
-    padding: 14px;
-    font-size: 16px;
-  }
-
-
-  /* =========================
-     MESA PARA 6 PESSOAS
-     ========================= */
-
-  .mesa-nomes {
-    padding: 16px;
-  }
+    @media
+    (max-width: 390px) {
 
-  .mesa-nomes .grade-2 {
-    grid-template-columns: 1fr;
-  }
+      .container {
 
+        padding-left: 14px;
+        padding-right: 14px;
 
-  /* =========================
-     RESUMO
-     ========================= */
+      }
 
-  .resumo-pagamento {
-    padding: 16px;
-  }
 
-  .resumo-linha {
-    align-items: center;
-    gap: 12px;
-  }
+      .secao {
 
+        padding:
+          45px 0;
 
-  /* =========================
-     PIX
-     ========================= */
+      }
 
-  .pix-box {
-    padding: 18px 15px;
-    border-radius: 18px;
-  }
 
-  .pix-chave {
-    display: grid;
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 15px;
-  }
+      h2 {
 
-  .pix-chave strong {
-    font-size: 1.05rem;
-    word-break: break-all;
-  }
+        font-size: 1.75rem;
 
-  .btn-copiar {
-    width: 100%;
-    min-height: 48px;
-  }
+      }
 
 
-  /* =========================
-     TERMOS
-     ========================= */
+      .form-box {
 
-  .termos {
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
+        padding:
+          19px 14px;
 
+      }
 
-  /* =========================
-     BOTÃO DE INSCRIÇÃO
-     ========================= */
+    }
 
-  .form-box > .btn-principal {
-    min-height: 54px;
-    width: 100%;
-    padding: 14px 18px;
-    font-size: 0.95rem;
-  }
 
 
-  /* =========================
-     WHATSAPP
-     ========================= */
+    /* =========================================================
+       TABLET / COMPUTADOR
+       ========================================================= */
 
-  .confirmacao-whatsapp {
-    padding: 18px 15px;
-    border-radius: 18px;
-  }
+    @media
+    (min-width: 768px) {
 
-  .btn-whatsapp {
-    width: 100%;
-    min-height: 54px;
-    text-align: center;
-  }
 
+      .container {
 
-  /* =========================
-     RODAPÉ
-     ========================= */
+        padding-left: 30px;
+        padding-right: 30px;
 
-  .rodape {
-    padding: 35px 18px;
-  }
+      }
 
-  .rodape img {
-    width: 85px;
-  }
 
-}
 
+      .logo-topo {
 
+        width: 82px;
+        height: 82px;
 
-/* =========================================================
-   CELULARES PEQUENOS
-   EX.: 320px a 390px
-   ========================================================= */
+      }
 
-@media (max-width: 390px) {
 
-  .container {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
 
-  h1 {
-    font-size: 2.6rem;
-  }
+      .topo-conteudo {
 
-  h2 {
-    font-size: 1.75rem;
-  }
+        min-height: 88px;
 
-  .logo-principal {
-    width: 145px;
-  }
+      }
 
-  .secao {
-    padding: 45px 0;
-  }
 
-  .form-box {
-    padding: 19px 14px;
-  }
 
-  .pacote {
-    padding: 22px 16px;
-  }
+      .logo-apresentacao {
 
-  .preco {
-    font-size: 2rem;
-  
+        width: 220px;
+
+      }
+
+
+
+      .apresentacao {
+
+        padding:
+          65px 0;
+
+      }
+
+
+
+      .evento-grid {
+
+        grid-template-columns:
+          repeat(3,1fr);
+
+      }
+
+
+
+      .pacotes {
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+        max-width: 900px;
+
+        margin: auto;
+
+      }
+
+
+
+      .sobre-grid {
+
+        grid-template-columns:
+          .9fr 1.1fr;
+
+        align-items: center;
+
+        gap: 45px;
+
+      }
+
+
+
+      .sobre-texto {
+
+        text-align: left;
+
+      }
+
+
+
+      .formulario-area {
+
+        grid-template-columns:
+          .8fr 1.2fr;
+
+        gap: 42px;
+
+        align-items: start;
+
+      }
+
+
+
+      .grade-2 {
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 14px;
+
+      }
+
+
+
+      .mesa-nomes .grade-2 {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+
+      .pix-chave {
+
+        grid-template-columns:
+          1fr auto;
+
+        align-items: center;
+
+        text-align: left;
+
+      }
+
+
+
+      .btn-copiar {
+
+        width: auto;
+
+        padding:
+          10px 18px;
+
+      }
+
+
+
+      .btn {
+
+        width: auto;
+
+      }
+
+
+
+      .form-box > .btn-principal {
+
+        width: 100%;
+
+      }
+
+
+
+      .btn-whatsapp {
+
+        width: 100%;
+
       }
 
     }
@@ -1797,65 +1612,84 @@
 
 
 
-<body>
+<body class="capa-aberta">
 
 
 
   <!-- =========================================================
-       MENU
+       CAPA INICIAL
+       ESTA É A PRIMEIRA TELA QUE A PESSOA VERÁ
        ========================================================= -->
 
-  <header class="topo">
+  <section
+    class="capa-inicial"
+    id="capaInicial"
+  >
 
-    <div class="container topo-conteudo">
+
+    <div class="capa-conteudo">
 
 
-      <a
-        href="#inicio"
-        class="marca-mini"
+      <!--
+        IMAGEM DO CONVITE
+        Arquivo:
+        assets/convite.jpeg
+      -->
+
+      <img
+        class="capa-convite"
+        src="./assets/convite.jpeg"
+        alt="Convite do Jantar de Lançamento A Casa Delas"
       >
 
-        <img
-          src="./assets/logo-transparent.png"
-          alt="Logomarca A Casa Delas"
-        >
-
-        <span>
-          A Casa Delas
-        </span>
-
-      </a>
 
 
+      <button
+        type="button"
+        class="btn-capa"
+        id="btnEntrar"
+      >
 
-      <nav class="menu">
+        Faça sua Inscrição!
 
-        <a href="#evento">
-          Evento
-        </a>
-
-        <a href="#pacotes">
-          Inscrição
-        </a>
-
-        <a href="#projeto">
-          O Projeto
-        </a>
-
-        <a
-          href="#inscricao"
-          class="btn btn-principal"
-        >
-          Inscreva-se
-        </a>
-
-      </nav>
+      </button>
 
 
     </div>
 
-  </header>
 
+  </section>
+
+
+
+  <!-- =========================================================
+       CABEÇALHO
+       SOMENTE A LOGOMARCA
+       ========================================================= -->
+
+  <header class="topo">
+
+
+    <div class="container topo-conteudo">
+
+
+      <a href="#evento">
+
+
+        <img
+          class="logo-topo"
+          src="./assets/logo-transparent.png"
+          alt="Logomarca A Casa Delas"
+        >
+
+
+      </a>
+
+
+    </div>
+
+
+  </header>
 
 
 
@@ -1864,101 +1698,52 @@
 
 
     <!-- =======================================================
-         INÍCIO
+         APRESENTAÇÃO
+         SOMENTE LOGO + TEXTO ESSENCIAL
          ======================================================= -->
 
-    <section
-      class="hero"
-      id="inicio"
-    >
-
-      <div class="container hero-grid">
+    <section class="apresentacao">
 
 
-        <div>
+      <div class="container">
 
 
-          <img
-            class="logo-principal"
-            src="./assets/logo-transparent.png"
-            alt="Projeto Social A Casa Delas"
-          >
+        <img
+          class="logo-apresentacao"
+          src="./assets/logo-transparent.png"
+          alt="Projeto Social A Casa Delas"
+        >
 
 
-          <div class="chamada">
+        <div class="chamada">
 
-            Jantar de lançamento
-
-          </div>
-
-
-          <h1>
-
-            A Casa Delas
-
-          </h1>
-
-
-          <p class="subtitulo">
-
-            Venha celebrar conosco
-            o início de um novo tempo
-            de acolhimento,
-            fortalecimento
-            e transformação de vidas.
-
-          </p>
-
-
-          <div class="slogan">
-
-            Acolher • Fortalecer • Transformar
-
-          </div>
-
-
-          <div class="acoes">
-
-            <a
-              href="#inscricao"
-              class="btn btn-principal"
-            >
-
-              Fazer inscrição
-
-            </a>
-
-
-            <a
-              href="#evento"
-              class="btn btn-claro"
-            >
-
-              Ver informações
-
-            </a>
-
-          </div>
-
+          Jantar de Lançamento
 
         </div>
 
 
+        <p>
 
-        <div class="hero-card">
+          Venha celebrar conosco
+          o início de um novo tempo
+          de acolhimento,
+          fortalecimento
+          e transformação de vidas.
 
-          <img
-            src="./assets/convite.jpeg"
-            alt="Convite do Jantar de Lançamento A Casa Delas"
-          >
+        </p>
+
+
+        <div class="slogan">
+
+          Acolher • Fortalecer • Transformar
 
         </div>
 
 
       </div>
 
-    </section>
 
+    </section>
 
 
 
@@ -1970,6 +1755,7 @@
       class="secao secao-suave"
       id="evento"
     >
+
 
       <div class="container">
 
@@ -2004,13 +1790,20 @@
 
           <article class="info-card">
 
+
             <div class="icone">
+
               ♡
+
             </div>
 
+
             <h3>
+
               Data e horário
+
             </h3>
+
 
             <p>
 
@@ -2022,19 +1815,27 @@
 
             </p>
 
+
           </article>
 
 
 
           <article class="info-card">
 
+
             <div class="icone">
+
               ⌂
+
             </div>
 
+
             <h3>
+
               Local
+
             </h3>
+
 
             <p>
 
@@ -2051,19 +1852,27 @@
 
             </p>
 
+
           </article>
 
 
 
           <article class="info-card">
 
+
             <div class="icone">
+
               ✦
+
             </div>
 
+
             <h3>
+
               Jantar
+
             </h3>
+
 
             <p>
 
@@ -2073,6 +1882,7 @@
 
             </p>
 
+
           </article>
 
 
@@ -2081,8 +1891,8 @@
 
       </div>
 
-    </section>
 
+    </section>
 
 
 
@@ -2094,6 +1904,7 @@
       class="secao"
       id="pacotes"
     >
+
 
       <div class="container">
 
@@ -2130,6 +1941,8 @@
         <div class="pacotes">
 
 
+          <!-- INDIVIDUAL -->
+
           <article class="pacote">
 
 
@@ -2162,9 +1975,6 @@
             </p>
 
 
-            <br>
-
-
             <a
               href="#inscricao"
               class="btn btn-principal"
@@ -2179,6 +1989,8 @@
           </article>
 
 
+
+          <!-- MESA -->
 
           <article
             class="pacote pacote-destaque"
@@ -2214,9 +2026,6 @@
             </p>
 
 
-            <br>
-
-
             <a
               href="#inscricao"
               class="btn btn-principal"
@@ -2236,112 +2045,25 @@
 
       </div>
 
-    </section>
-
-
-
-
-    <!-- =======================================================
-         GALERIA
-         ======================================================= -->
-
-    <section class="secao secao-suave">
-
-
-      <div class="container">
-
-
-        <div class="titulo-centro">
-
-
-          <div class="chamada">
-
-            Identidade do projeto
-
-          </div>
-
-
-          <h2>
-
-            A Casa Delas
-
-          </h2>
-
-
-          <div class="linha-rosa"></div>
-
-
-        </div>
-
-
-
-        <div class="galeria">
-
-
-          <!-- CAMISAS -->
-
-          <figure class="galeria-item">
-
-            <img
-              src="./assets/camisas.jpeg"
-              alt="Camisas do Projeto A Casa Delas"
-              loading="lazy"
-            >
-
-          </figure>
-
-
-
-          <!-- ECHARPE -->
-
-          <figure class="galeria-item">
-
-            <img
-              src="./assets/echarpe.jpeg"
-              alt="Echarpe do Projeto A Casa Delas"
-              loading="lazy"
-            >
-
-          </figure>
-
-
-
-          <!-- AGENDA -->
-
-          <figure class="galeria-item">
-
-            <img
-              src="./assets/agenda.jpeg"
-              alt="Agenda do Projeto A Casa Delas"
-              loading="lazy"
-            >
-
-          </figure>
-
-
-        </div>
-
-
-      </div>
 
     </section>
 
 
 
-
     <!-- =======================================================
-         PROJETO
+         PROJETO SOCIAL
          ======================================================= -->
 
     <section
-      class="secao"
+      class="secao secao-suave"
       id="projeto"
     >
+
 
       <div class="container sobre-grid">
 
 
-        <div>
+        <div class="sobre-texto">
 
 
           <div class="chamada">
@@ -2415,26 +2137,27 @@
 
       </div>
 
+
     </section>
 
 
 
-
     <!-- =======================================================
-         FORMULÁRIO
+         INSCRIÇÃO
          ======================================================= -->
 
     <section
-      class="secao secao-suave"
+      class="secao"
       id="inscricao"
     >
+
 
       <div class="container formulario-area">
 
 
         <!-- INFORMAÇÕES -->
 
-        <div>
+        <div class="formulario-info">
 
 
           <div class="chamada">
@@ -2455,7 +2178,7 @@
 
             Preencha seus dados,
             escolha sua modalidade
-            e efetue o pagamento
+            e realize o pagamento
             através do Pix.
 
           </p>
@@ -2467,13 +2190,20 @@
 
             <div class="resumo-linha">
 
+
               <span>
+
                 Individual
+
               </span>
 
+
               <strong>
+
                 R$ 50,00
+
               </strong>
+
 
             </div>
 
@@ -2481,13 +2211,20 @@
 
             <div class="resumo-linha">
 
+
               <span>
+
                 Mesa para 6 pessoas
+
               </span>
 
+
               <strong>
+
                 R$ 280,00
+
               </strong>
+
 
             </div>
 
@@ -2498,7 +2235,7 @@
 
           <p class="pagamento-aviso">
 
-            Após enviar a inscrição
+            Após enviar sua inscrição
             pelo WhatsApp,
             nossa equipe solicitará
             o comprovante do pagamento
@@ -2511,13 +2248,15 @@
 
 
 
-
-        <!-- FORMULÁRIO -->
+        <!-- ===================================================
+             FORMULÁRIO
+             =================================================== -->
 
         <form
           class="form-box"
           id="formInscricao"
         >
+
 
 
           <!-- NOME -->
@@ -2546,55 +2285,51 @@
 
 
 
-          <!-- EMAIL E WHATSAPP -->
+          <!-- E-MAIL -->
 
-          <div class="grade-2">
-
-
-            <div class="campo">
+          <div class="campo">
 
 
-              <label for="email">
+            <label for="email">
 
-                E-mail *
+              E-mail *
 
-              </label>
-
-
-              <input
-                type="email"
-                id="email"
-                name="email"
-                autocomplete="email"
-                required
-              >
+            </label>
 
 
-            </div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+            >
+
+
+          </div>
 
 
 
-            <div class="campo">
+          <!-- WHATSAPP -->
+
+          <div class="campo">
 
 
-              <label for="telefone">
+            <label for="telefone">
 
-                WhatsApp *
+              WhatsApp *
 
-              </label>
-
-
-              <input
-                type="tel"
-                id="telefone"
-                name="phone"
-                placeholder="(27) 99999-9999"
-                autocomplete="tel"
-                required
-              >
+            </label>
 
 
-            </div>
+            <input
+              type="tel"
+              id="telefone"
+              name="phone"
+              placeholder="(27) 99999-9999"
+              autocomplete="tel"
+              required
+            >
 
 
           </div>
@@ -2648,7 +2383,9 @@
 
 
 
-          <!-- NOMES DA MESA -->
+          <!-- =================================================
+               PARTICIPANTES DA MESA
+               ================================================= -->
 
           <div
             class="mesa-nomes"
@@ -2671,8 +2408,6 @@
 
             </p>
 
-
-            <br>
 
 
             <div class="grade-2">
@@ -2751,8 +2486,9 @@
 
 
 
-
-          <!-- RESUMO DA INSCRIÇÃO -->
+          <!-- =================================================
+               RESUMO
+               ================================================= -->
 
           <div class="resumo-pagamento">
 
@@ -2778,7 +2514,9 @@
 
 
 
-            <div class="resumo-linha resumo-total">
+            <div
+              class="resumo-linha resumo-total"
+            >
 
 
               <span>
@@ -2802,9 +2540,8 @@
 
 
 
-
           <!-- =================================================
-               PAGAMENTO PIX
+               PIX
                ================================================= -->
 
           <div class="pix-box">
@@ -2838,9 +2575,6 @@
                   CHAVE PIX — CNPJ
 
                 </small>
-
-
-                <br>
 
 
                 <strong id="chavePixTexto">
@@ -2890,8 +2624,9 @@
 
 
 
-
-          <!-- TERMO -->
+          <!-- =================================================
+               LGPD
+               ================================================= -->
 
           <label class="termos">
 
@@ -2918,8 +2653,9 @@
 
 
 
-
-          <!-- BOTÃO PRINCIPAL -->
+          <!-- =================================================
+               CONFIRMAR
+               ================================================= -->
 
           <button
             type="submit"
@@ -2934,14 +2670,15 @@
 
 
           <p
-            id="mensagemFormulario"
             class="mensagem"
+            id="mensagemFormulario"
           ></p>
 
 
 
-
-          <!-- BOTÃO WHATSAPP -->
+          <!-- =================================================
+               WHATSAPP
+               ================================================= -->
 
           <div
             class="confirmacao-whatsapp"
@@ -2963,8 +2700,8 @@
 
             <a
               href="#"
-              id="btnWhatsappConfirmacao"
               class="btn btn-whatsapp"
+              id="btnWhatsappConfirmacao"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -2982,11 +2719,11 @@
 
       </div>
 
+
     </section>
 
 
   </main>
-
 
 
 
@@ -3027,7 +2764,6 @@
 
 
 
-
   <!-- =========================================================
        JAVASCRIPT
        ========================================================= -->
@@ -3036,62 +2772,47 @@
 
 
     /* =========================================================
-       ⚠️ CONFIGURAÇÃO - ALTERE SOMENTE AQUI
+       ⚠️ CONFIGURAÇÃO
+       VOCÊ SÓ PRECISA ALTERAR ESTAS DUAS INFORMAÇÕES
        ========================================================= */
 
 
     /*
-       ---------------------------------------------------------
-       1. COLOQUE O CNPJ QUE SERÁ A CHAVE PIX
+       =========================================================
+       1. CHAVE PIX
 
-       Coloque APENAS os 14 números.
+       COLOQUE OS 14 NÚMEROS DO CNPJ.
 
        EXEMPLO:
+       45.624.209/0001-64
 
-       const CHAVE_PIX_CNPJ = "45624209000164";
-
-       NÃO coloque:
-       ponto
-       barra
-       traço
-       espaço
-       ---------------------------------------------------------
+       FICA:
+       "45624209000164"
+       =========================================================
     */
 
-
     const CHAVE_PIX_CNPJ =
-      "45624209000164";
+      "SEU_CNPJ_AQUI";
 
 
 
     /*
-       ---------------------------------------------------------
-       2. COLOQUE O WHATSAPP QUE RECEBERÁ AS INSCRIÇÕES
+       =========================================================
+       2. WHATSAPP QUE RECEBERÁ AS INSCRIÇÕES
 
-       Formato:
-
+       FORMATO:
        55 + DDD + NÚMERO
 
        EXEMPLO:
-
-       Telefone:
        (27) 99999-8888
 
-       Coloque:
-
-       const WHATSAPP_PROJETO = "5527997584887";
-
-       NÃO coloque:
-       +
-       espaço
-       parênteses
-       traço
-       ---------------------------------------------------------
+       FICA:
+       "5527999998888"
+       =========================================================
     */
 
-
     const WHATSAPP_PROJETO =
-      "5527997584887";
+      "5527SEUNUMERO";
 
 
 
@@ -3099,6 +2820,70 @@
        NÃO PRECISA ALTERAR DAQUI PARA BAIXO
        ========================================================= */
 
+
+
+    /* =========================================================
+       CAPA
+       ========================================================= */
+
+    const capaInicial =
+      document.getElementById(
+        "capaInicial"
+      );
+
+
+    const btnEntrar =
+      document.getElementById(
+        "btnEntrar"
+      );
+
+
+
+    btnEntrar.addEventListener(
+
+      "click",
+
+      function () {
+
+
+        capaInicial.classList.add(
+          "oculta"
+        );
+
+
+        document.body.classList.remove(
+          "capa-aberta"
+        );
+
+
+        setTimeout(
+
+          function () {
+
+
+            document
+              .getElementById("evento")
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+
+
+          },
+
+          250
+
+        );
+
+
+      }
+
+    );
+
+
+
+    /* =========================================================
+       ELEMENTOS
+       ========================================================= */
 
     const formulario =
       document.getElementById(
@@ -3214,7 +2999,9 @@
 
 
       return valor.toLocaleString(
+
         "pt-BR",
+
         {
 
           style:
@@ -3224,6 +3011,7 @@
             "BRL"
 
         }
+
       );
 
 
@@ -3243,13 +3031,17 @@
         .replace(/\D/g, "");
 
 
+
       if (
         numeros.length !== 14
       ) {
 
+
         return cnpj;
 
+
       }
+
 
 
       return numeros.replace(
@@ -3266,29 +3058,29 @@
 
 
     /* =========================================================
-       MOSTRAR CHAVE PIX
+       MOSTRAR PIX
        ========================================================= */
 
     function mostrarPix() {
 
 
-      const somenteNumeros =
+      const cnpj =
         String(CHAVE_PIX_CNPJ)
         .replace(/\D/g, "");
 
 
+
       if (
-        somenteNumeros.length === 14
+        cnpj.length === 14
       ) {
 
 
         chavePixTexto.textContent =
-          formatarCNPJ(
-            somenteNumeros
-          );
+          formatarCNPJ(cnpj);
 
 
       }
+
 
       else {
 
@@ -3317,6 +3109,7 @@
         ];
 
 
+
       mesaNomes.classList.toggle(
 
         "ativo",
@@ -3325,6 +3118,7 @@
         "mesa_6"
 
       );
+
 
 
       if (!escolhido) {
@@ -3344,8 +3138,10 @@
       }
 
 
+
       resumoModalidade.textContent =
         escolhido.nome;
+
 
 
       resumoValor.textContent =
@@ -3359,7 +3155,7 @@
 
 
     /* =========================================================
-       BOTÕES DOS PACOTES
+       SELECIONAR PACOTE
        ========================================================= */
 
     function selecionarPacote(tipo) {
@@ -3387,7 +3183,7 @@
 
 
     /* =========================================================
-       COPIAR CHAVE PIX
+       COPIAR PIX
        ========================================================= */
 
     btnCopiarPix.addEventListener(
@@ -3397,18 +3193,19 @@
       async function () {
 
 
-        const chaveLimpa =
+        const chave =
           String(CHAVE_PIX_CNPJ)
           .replace(/\D/g, "");
 
 
+
         if (
-          chaveLimpa.length !== 14
+          chave.length !== 14
         ) {
 
 
           pixStatus.textContent =
-            "Configure primeiro o CNPJ do Pix no código.";
+            "Configure o CNPJ do Pix no código.";
 
 
           return;
@@ -3417,12 +3214,14 @@
         }
 
 
+
         try {
 
 
-          await navigator.clipboard.writeText(
-            chaveLimpa
-          );
+          await navigator
+            .clipboard
+            .writeText(chave);
+
 
 
           pixStatus.textContent =
@@ -3436,12 +3235,8 @@
 
 
           pixStatus.textContent =
-
             "Chave Pix: " +
-
-            formatarCNPJ(
-              chaveLimpa
-            );
+            formatarCNPJ(chave);
 
 
         }
@@ -3454,7 +3249,7 @@
 
 
     /* =========================================================
-       CRIAR MENSAGEM DO WHATSAPP
+       CRIAR MENSAGEM WHATSAPP
        ========================================================= */
 
     function criarMensagemWhatsapp(
@@ -3468,7 +3263,8 @@
         ];
 
 
-      const pixFormatado =
+
+      const pix =
         formatarCNPJ(
           CHAVE_PIX_CNPJ
         );
@@ -3491,13 +3287,13 @@ Gostaria de realizar minha inscrição para o Jantar de Lançamento do Projeto S
 💰 *Valor:* ${formatarReal(modalidade.valor)}
 
 💳 *Forma de pagamento:* Pix
-🔑 *Chave Pix / CNPJ:* ${pixFormatado}`;
+🔑 *Chave Pix / CNPJ:* ${pix}`;
 
 
 
-      /* ---------------------------------------------------------
-         SE FOR MESA, MOSTRAR PARTICIPANTES
-         --------------------------------------------------------- */
+      /* =======================================================
+         PARTICIPANTES DA MESA
+         ======================================================= */
 
       if (
         dados.package_type ===
@@ -3535,6 +3331,7 @@ Gostaria de realizar minha inscrição para o Jantar de Lançamento do Projeto S
 
 
         }
+
 
         else {
 
@@ -3593,19 +3390,17 @@ Acolher • Fortalecer • Transformar`;
         evento.preventDefault();
 
 
+
         mensagemFormulario.textContent =
           "";
 
 
-        confirmacaoWhatsapp.classList.remove(
-          "ativo"
-        );
+
+        confirmacaoWhatsapp
+          .classList
+          .remove("ativo");
 
 
-
-        /* -------------------------------------------------------
-           DADOS DO FORMULÁRIO
-           ------------------------------------------------------- */
 
         const dadosFormulario =
           new FormData(
@@ -3714,7 +3509,7 @@ Acolher • Fortalecer • Transformar`;
 
 
         /* =====================================================
-           VALIDAÇÃO
+           VALIDAR FORMULÁRIO
            ===================================================== */
 
         if (
@@ -3736,49 +3531,23 @@ Acolher • Fortalecer • Transformar`;
 
 
 
-        /* -------------------------------------------------------
-           VERIFICAR CNPJ PIX
-           ------------------------------------------------------- */
+        /* =====================================================
+           VALIDAR PIX
+           ===================================================== */
 
-        const cnpjLimpo =
+        const cnpj =
           String(CHAVE_PIX_CNPJ)
           .replace(/\D/g, "");
 
 
+
         if (
-          cnpjLimpo.length !== 14
+          cnpj.length !== 14
         ) {
 
 
           mensagemFormulario.textContent =
-
-            "O CNPJ do Pix ainda não foi configurado no código.";
-
-
-          return;
-
-
-        }
-
-
-
-        /* -------------------------------------------------------
-           VERIFICAR WHATSAPP
-           ------------------------------------------------------- */
-
-        const whatsappLimpo =
-          String(WHATSAPP_PROJETO)
-          .replace(/\D/g, "");
-
-
-        if (
-          whatsappLimpo.length < 12
-        ) {
-
-
-          mensagemFormulario.textContent =
-
-            "O número do WhatsApp do projeto ainda não foi configurado.";
+            "O CNPJ do Pix ainda não foi configurado.";
 
 
           return;
@@ -3789,7 +3558,33 @@ Acolher • Fortalecer • Transformar`;
 
 
         /* =====================================================
-           MONTAR WHATSAPP
+           VALIDAR WHATSAPP
+           ===================================================== */
+
+        const whatsapp =
+          String(WHATSAPP_PROJETO)
+          .replace(/\D/g, "");
+
+
+
+        if (
+          whatsapp.length < 12
+        ) {
+
+
+          mensagemFormulario.textContent =
+            "O WhatsApp do projeto ainda não foi configurado.";
+
+
+          return;
+
+
+        }
+
+
+
+        /* =====================================================
+           GERAR LINK WHATSAPP
            ===================================================== */
 
         const mensagem =
@@ -3803,7 +3598,7 @@ Acolher • Fortalecer • Transformar`;
 
           "https://wa.me/" +
 
-          whatsappLimpo +
+          whatsapp +
 
           "?text=" +
 
@@ -3843,7 +3638,7 @@ Acolher • Fortalecer • Transformar`;
 
           "</strong><br><br>" +
 
-          "Clique no botão abaixo para enviar sua inscrição ao WhatsApp de A Casa Delas. " +
+          "Clique no botão abaixo para enviar sua inscrição pelo WhatsApp. " +
 
           "Após recebermos sua inscrição, solicitaremos o comprovante do Pix.";
 
@@ -3854,20 +3649,19 @@ Acolher • Fortalecer • Transformar`;
 
 
 
-        confirmacaoWhatsapp.classList.add(
-          "ativo"
-        );
+        confirmacaoWhatsapp
+          .classList
+          .add("ativo");
 
 
 
         mensagemFormulario.textContent =
-
           "Inscrição preenchida. Agora envie a mensagem pelo WhatsApp.";
 
 
 
         /* =====================================================
-           ABRIR WHATSAPP AUTOMATICAMENTE
+           ABRIR WHATSAPP
            ===================================================== */
 
         window.open(
@@ -3883,7 +3677,7 @@ Acolher • Fortalecer • Transformar`;
 
 
     /* =========================================================
-       INICIALIZAÇÃO
+       INICIAR
        ========================================================= */
 
     mostrarPix();
